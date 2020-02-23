@@ -83,6 +83,11 @@ argument:
   }
   ;
 
+pipe_list:
+  pipe_list PIPE command_and_args
+  | command_and_args
+  ;
+
 command_word:
   WORD {
     printf("   Yacc: insert command \"%s\"\n", $1->c_str());
