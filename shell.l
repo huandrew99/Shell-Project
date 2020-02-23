@@ -34,9 +34,12 @@ void myunputc(int c) {
 }
 
 
-
 ">" {
   return GREAT;
+}
+
+"<" {
+  return LESS;
 }
 
 [^ \t\n][^ \t\n]*  {
