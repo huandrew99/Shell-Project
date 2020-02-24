@@ -104,6 +104,10 @@ iomodifier_opt:
   | GREATGREAT WORD {
     printf("   Yacc: insert output append \"%s\"\n", $2->c_str());
     Shell::_currentCommand._outFileName = $2;
+  } GREATGREATAMPERSAND WORD {
+    printf("   Yacc: insert output >>& \"%s\"\n", $2->c_str());
+    Shell::_currentCommand._outFileName = $2;
+    Shell::_currentCommand._backgnd = true;
   }
 
   ;
