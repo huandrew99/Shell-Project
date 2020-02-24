@@ -19,6 +19,8 @@
 
 #include <iostream>
 #include <string>
+#include <unistd.h>
+
 #include "command.hh"
 #include "shell.hh"
 
