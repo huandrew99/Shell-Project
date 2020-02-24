@@ -119,13 +119,13 @@ void Command::execute() {
 
     }
     arr[i] = NULL;
-    printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
+    //printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
     if (ret == 0) {
-      printf("execute\n");
+      //printf("execute\n");
       execvp(arr[0], arr);
       perror("execvp");
       exit(1);
-      printf("execute\n");
+      //printf("execute\n");
     }
     else if (ret == 0) {
       perror("fork");
@@ -134,7 +134,7 @@ void Command::execute() {
     else {
       waitpid(ret, NULL, 0);
     }
-    printf("clear\n");
+    //printf("clear\n");
 
     /*int size = _simpleCommandsArray.size();
     for (int i = 0; i < size) {
