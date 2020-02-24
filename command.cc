@@ -104,7 +104,7 @@ void Command::execute() {
     // Print contents of Command data structure
     print();
     int ret = fork();
-    char ** arr = new char *;
+    const char ** arr = new char *;
     arr[0] = (_simpleCommandsArray[0]->_argumentsArray[0])->c_str();
     arr[1] = (_simpleCommandsArray[0]->_argumentsArray[1])->c_str();
     arr[2] = NULL;
