@@ -117,6 +117,7 @@ void Command::execute() {
     arr[i] = NULL;
 
     if (ret == 0) {
+      printf("execute\n");
       execvp(arr[0], arr);
       perror("execvp");
       exit(1);
