@@ -106,6 +106,10 @@ void Command::execute() {
 
     // Print contents of Command data structure
     print();
+    int defin = dup(0);
+    int defou = dup(1);
+    int defer = dup(2);
+
     int ret = fork();
     int argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
     char ** arr = new char *[argument_size + 1];
@@ -115,7 +119,7 @@ void Command::execute() {
 
     }
     arr[i] = NULL;
-
+    printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
     if (ret == 0) {
       printf("execute\n");
       execvp(arr[0], arr);
