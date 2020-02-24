@@ -20,7 +20,7 @@
 #include <iostream>
 #include <string>
 #include <unistd.h>
-
+#include <string.h>
 #include "command.hh"
 #include "shell.hh"
 
@@ -104,11 +104,11 @@ void Command::execute() {
     // Print contents of Command data structure
     print();
     int ret = fork();
-    size_t argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
+    int argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
     char ** arr = new char *[argument_size + 1];
     int i = 0;
     for (int i = 0; i < argument_size; i++) {
-      arr[i] = strdup(_simpleCommandsArray[0]->_argumentsArraY[i]->c_str());
+      arr[i] = strdup(_simpleCommandsArray[0]->_argumentsArray[i]->c_str());
 
     }
     arr[i] = NULL;
