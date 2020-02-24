@@ -21,6 +21,9 @@
 #include <string>
 #include <unistd.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
 #include "command.hh"
 #include "shell.hh"
 
