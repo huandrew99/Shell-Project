@@ -18,7 +18,7 @@
 #include <cstdlib>
 
 #include <iostream>
-
+#include <string>
 #include "command.hh"
 #include "shell.hh"
 
@@ -101,11 +101,38 @@ void Command::execute() {
 
     // Print contents of Command data structure
     print();
+    int ret = fork();
+    string *arr = new string;
+    arr[0] = "ls";
+    arr[1] = "-al";
+    arr[2] = NULL;
+    if (ret == 0) {
+      execvp(arr[0], arr);
+      perror("execvp");
+      exit(1);
+    }
+    else if (ret == 0) {
+      perror("fork");
+      exit(2);
+    }
+    else {
+      waitpid(ret, NULL);
+    }
+    
 
+    /*int size = _simpleCommandsArray.size();
+    for (int i = 0; i < size) {
+      for (
+    }*/
     // Add execution here
     // For every simple command fork a new process
+   // int ret = fork();
     // Setup i/o redirection
     // and call exec
+    
+    //if (ret == 0) {
+      
+   // }
 
     // Clear to prepare for next command
     clear();
