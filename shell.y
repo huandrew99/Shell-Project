@@ -118,7 +118,7 @@ iomodifier_opt:
   | GREATAMPERSAND WORD {
     printf("   Yacc: insert output >& \"%s\"\n", $2->c_str());
     Shell::_currentCommand._outFileName = $2;
-    arg = $2;
+    string arg = $2;
     Shell::_currentCommand._errFileName = arg;
   }
   | TWOGREAT WORD {
