@@ -126,7 +126,7 @@ void Command::execute() {
       exit(2);
     }
     else {
-      waitpid(ret, NULL);
+      waitpid(ret, NULL, 0);
     }
     
 
