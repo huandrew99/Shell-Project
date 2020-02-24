@@ -128,7 +128,9 @@ iomodifier_list:
   ;
 
 background_opt:
-  AMPERSAND
+  AMPERSAND {
+  Shell::_currentCommand._backgnd = true;
+  }
   | /* can be empty */
   ;
 
