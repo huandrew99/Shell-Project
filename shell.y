@@ -110,6 +110,15 @@ iomodifier_opt:
     Shell::_currentCommand._outFileName = $2;
     Shell::_currentCommand._backgnd = true;
   }
+  | LESS WORD {
+    printf("   Yacc: insert input \"%s\"\n", $2->c_str());
+    Shell::_currentCommand._inFileName = $2;
+  }
+  | GREATAMPERSAND WORD {
+    printf("   Yacc: insert output >& \"%s\"\n", $2->c_str());
+    Shell::_currentCommand._outFileName = $2;
+    Shell::_currentCommand._backgnd = true;
+  }
 
   ;
 
