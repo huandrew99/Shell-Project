@@ -105,9 +105,9 @@ void Command::execute() {
     print();
     int ret = fork();
     char ** arr = new char *;
-    arr[0] = "ls"->c_str();
-    arr[1] = "-al"->c_str();
-    arr[2] = NULL->c_str();
+    arr[0] = _simpleCommandsArray->_argumentsArray[0]->c_str();
+    arr[1] = _simpleCommandsArray->_argumentsArray[1]->c_str();
+    arr[2] = NULL;
     if (ret == 0) {
       execvp(arr[0], arr);
       perror("execvp");
