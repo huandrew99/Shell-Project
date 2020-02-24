@@ -101,7 +101,16 @@ iomodifier_opt:
     printf("   Yacc: insert output \"%s\"\n", $2->c_str());
     Shell::_currentCommand._outFileName = $2;
   }
-  | /* can be empty */ 
+  ;
+
+iomodifier_list:
+  iomodifier_list iomodifier_opt
+  | /* can be empty */
+  ;
+
+background_opt:
+  AMPERSAND
+  | /* can be empty */
   ;
 
 %%
