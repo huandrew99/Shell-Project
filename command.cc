@@ -145,14 +145,17 @@ void Command::execute() {
    // int ret = fork();
     // Setup i/o redirection
     // and call exec
-    
+
     //if (ret == 0) {
-      
+
    // }
-    
+    if (!background) {
+      printf("!background\n")
+      waitpid(ret, NULL, 0);
+    }
     // Clear to prepare for next command
     clear();
-
+    
     // Print new prompt
     Shell::prompt();
 }
