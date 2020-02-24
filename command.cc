@@ -121,6 +121,7 @@ void Command::execute() {
       execvp(arr[0], arr);
       perror("execvp");
       exit(1);
+      printf("execute\n");
     }
     else if (ret == 0) {
       perror("fork");
@@ -129,7 +130,7 @@ void Command::execute() {
     else {
       waitpid(ret, NULL, 0);
     }
-    
+    printf("clear\n");
 
     /*int size = _simpleCommandsArray.size();
     for (int i = 0; i < size) {
@@ -144,7 +145,7 @@ void Command::execute() {
     //if (ret == 0) {
       
    // }
-
+    
     // Clear to prepare for next command
     clear();
 
