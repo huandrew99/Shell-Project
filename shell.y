@@ -108,8 +108,9 @@ iomodifier_opt:
   | GREATGREATAMPERSAND WORD {
     printf("   Yacc: insert output >>& \"%s\"\n", $2->c_str());
     Shell::_currentCommand._outFileName = $2;
-
-    Shell::_currentCommand._errFileName = $2;
+    std::string *arg = new std::string;
+    *arg = *($2);
+    Shell::_currentCommand._errFileName = arg;
   }
   | LESS WORD {
     printf("   Yacc: insert input \"%s\"\n", $2->c_str());
