@@ -149,7 +149,7 @@ void Command::execute() {
     //if (ret == 0) {
 
    // }
-    if (!background) {
+    if (!_backgnd) {
       printf("!background\n")
       waitpid(ret, NULL, 0);
     }
