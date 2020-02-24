@@ -150,7 +150,7 @@ void Command::execute() {
 
    // }
     if (!_backgnd) {
-      printf("!background\n")
+      printf("!background\n");
       waitpid(ret, NULL, 0);
     }
     // Clear to prepare for next command
