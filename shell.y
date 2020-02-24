@@ -66,7 +66,7 @@ simple_command:
 
 command_and_args:
   command_word argument_list {
-    printf("command \"%s\"\n", Command::currSimpleCommand );
+    printf("command \"%s\"\n", Command::_currSimpleCommand );
     Shell::_currentCommand.
     insertSimpleCommand( Command::_currSimpleCommand );
   }
