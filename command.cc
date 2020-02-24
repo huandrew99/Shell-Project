@@ -104,10 +104,15 @@ void Command::execute() {
     // Print contents of Command data structure
     print();
     int ret = fork();
-    char * const* arr = new char * const;
-    arr[0] = (_simpleCommandsArray[0]->_argumentsArray[0])->c_str();
-    arr[1] = (_simpleCommandsArray[0]->_argumentsArray[1])->c_str();
-    arr[2] = NULL;
+    size_t argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
+    char ** arr = new char *[argument_size + 1];
+    int i = 0;
+    for (int i = 0; i < argument_size; i++) {
+      arr[i] = strdup(_simpleCommandsArray[0]->_argumentsArraY[i]->c_str());
+
+    }
+    arr[i] = NULL;
+
     if (ret == 0) {
       execvp(arr[0], arr);
       perror("execvp");
