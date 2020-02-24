@@ -94,7 +94,7 @@ void Command::print() {
 void Command::execute() {
     // Don't do anything if there are no simple commands
     if ( _simpleCommandsArray.size() == 0 ) {
-        printf("commandArraySize: %d", _simpleCommandsArray.size());
+        printf("commandArraySize: %d\n", _simpleCommandsArray.size());
         Shell::prompt();
         return;
     }
