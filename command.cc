@@ -104,7 +104,7 @@ void Command::execute() {
     // Print contents of Command data structure
     print();
     int ret = fork();
-    string *arr = new string;
+    std::string * arr = new std::string;
     arr[0] = "ls";
     arr[1] = "-al";
     arr[2] = NULL;
