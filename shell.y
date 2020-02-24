@@ -60,7 +60,7 @@ simple_command:
     printf("   Yacc: Execute command\n");
     Shell::_currentCommand.execute();
   }
-  | NEWLINE
+  | NEWLINE { Shell::prompt(); }
   | error NEWLINE { yyerrok; }
   ;
 
@@ -118,8 +118,7 @@ iomodifier_opt:
   | GREATAMPERSAND WORD {
     printf("   Yacc: insert output >& \"%s\"\n", $2->c_str());
     Shell::_currentCommand._outFileName = $2;
-    std::string *arg = $2;
-    Shell::_currentCommand._errFileName = arg;
+    Shell::_currentCommand._errFileName = $2;
   }
   | TWOGREAT WORD {
     printf("   Yacc: insert stderr >& \"%s\"\n", $2->c_str());
