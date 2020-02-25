@@ -239,7 +239,9 @@ void Command::execute() {
     // Clear to prepare for next command
     clear();
     // Print new prompt
-    Shell::prompt();
+    if (isatty(0)) {
+      Shell::prompt();
+    }
     
 }
 
