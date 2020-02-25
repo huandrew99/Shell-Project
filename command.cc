@@ -129,10 +129,19 @@ void Command::execute() {
       infd = dup(tmpin);
     }
     if (_errFileName) {
-      erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600);
-      if (erfd < 0) {
-        perror("open");
-        exit(1);
+      if (_append) {
+        erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0600);
+        if (erfd < 0) {
+          perror("open");
+          exit(1);
+        }
+      }
+      else {
+        erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600);
+        if (erfd < 0) {
+          perror("open");
+          exit(1);
+        }
       }
     }
     else {
@@ -148,10 +157,19 @@ void Command::execute() {
       close(erfd);
       if (j == _simpleCommandsArray.size() - 1) {
         if (_outFileName) {
-          oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600);
-          if (oufd < 0) {
-            perror("open");
-            exit(1);
+          if (_append) {
+            oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0600);
+            if (oufd < 0) {
+              perror("open");
+              exit(1);
+            }
+          }
+          else {
+            oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600);
+            if (oufd < 0) {
+              perror("open");
+              exit(1);
+            }
           }
         }
         else {
