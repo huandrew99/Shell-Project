@@ -179,6 +179,13 @@ void Command::execute() {
         }
         
       }
+      else {
+        int fdpipe[2];
+        pipe(fdpipe);
+        infd = fdpipe[0];
+        oufd = fdpipe[1];
+      }
+
       dup2(oufd, 1);
       close(oufd);
 
