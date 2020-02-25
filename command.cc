@@ -116,7 +116,7 @@ void Command::execute() {
       int ret = fork();
       int argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
       char ** arr = new char *[argument_size + 1];
-      int i = 0;
+      size_t i = 0;
       for (i = 0; i < argument_size; i++) {
         arr[i] = strdup(_simpleCommandsArray[0]->_argumentsArray[i]->c_str());
 
