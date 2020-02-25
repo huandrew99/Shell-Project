@@ -28,6 +28,7 @@ int main() {
     perror("sigaction");
     exit(2);
   }
+
   Shell::prompt();
   yyparse();
 }
