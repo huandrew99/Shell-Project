@@ -109,7 +109,9 @@ void Command::execute() {
     int tmpin = dup(0);
     int tmpou = dup(1);
     int tmper = dup(2);
-
+    if (_inFileName) {
+      //int infd =
+    }
     int ret;
 
     for (size_t j = 0; j < _simpleCommandsArray.size(); j++) {
