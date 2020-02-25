@@ -150,13 +150,13 @@ void Command::execute() {
     int ret;
     size_t simpleNum = _simpleCommandsArray.size();
     printf("size%zu\n", simpleNum);
-    for (size_t j = 0; j < _simpleCommandsArray.size(); j++) {
+    for (size_t j = 0; j < simpleNum; j++) {
       printf("count:%zu\n", j);
       dup2(infd, 0);
       close(infd);
       dup2(erfd, 2);
       close(erfd);
-      if (j == _simpleCommandsArray.size() - 1) {
+      if (j == simpleNum - 1) {
         if (_outFileName) {
           if (_append) {
             printf("outappend\n");
