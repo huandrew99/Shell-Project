@@ -110,7 +110,7 @@ void Command::execute() {
     int tmpou = dup(1);
     int tmper = dup(2);
 
-    int ret = 0;
+    int ret;
 
     for (size_t j = 0; j < _simpleCommandsArray.size(); j++) {
       printf("count:%zu\n", j);
