@@ -160,7 +160,7 @@ void Command::execute() {
         if (_outFileName) {
           if (_append) {
             printf("outappend\n");
-            oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0600);
+            oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0664);
             if (oufd < 0) {
               perror("open");
               exit(1);
@@ -168,7 +168,7 @@ void Command::execute() {
           }
           else {
             printf("Outnotappend\n");
-            oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600);
+            oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0664);
             if (oufd < 0) {
               perror("open");
               exit(1);
@@ -184,8 +184,8 @@ void Command::execute() {
         printf("pipe\n");
         int fdpipe[2];
         pipe(fdpipe);
-        oufd = fdpipe[0];
-        infd = fdpipe[1];
+        oufd = fdpipe[1];
+        infd = fdpipe[0];
       }
 
       dup2(oufd, 1);
