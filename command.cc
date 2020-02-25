@@ -70,7 +70,7 @@ void Command::clear() {
         delete _errFileName;
     }
     _errFileName = NULL;
-
+    _append = false;
     _backgnd = false;
 }
 
