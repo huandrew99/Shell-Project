@@ -133,7 +133,9 @@ void Command::execute() {
         erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0664);
         if (erfd < 0) {
           perror("open");
+          printf("return\n");
           return;
+          printf("notreturn\n");
           //exit(1);
         }
       }
