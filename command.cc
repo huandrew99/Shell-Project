@@ -202,6 +202,7 @@ void Command::execute() {
 
       }
       arr[i] = NULL;
+      printf("i:%zu\n", i);
       printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
       if (ret == 0) {
       //printf("execute\n");
