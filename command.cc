@@ -196,7 +196,7 @@ void Command::execute() {
     // and call exec
     
     dup2(tmpin, 0);
-    dup2(tepou, 1);
+    dup2(tmpou, 1);
     dup2(tmper, 2);
     close(tmpin);
     close(tmpou);
