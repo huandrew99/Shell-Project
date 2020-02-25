@@ -197,7 +197,7 @@ void Command::execute() {
       char ** arr = new char *[argument_size + 1];
       size_t i = 0;
       for (i = 0; i < argument_size; i++) {
-        arr[i] = strdup(_simpleCommandsArray[0]->_argumentsArray[i]->c_str());
+        arr[i] = strdup(_simpleCommandsArray[j]->_argumentsArray[i]->c_str());
 
       }
       arr[i] = NULL;
