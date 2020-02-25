@@ -184,7 +184,7 @@ void Command::execute() {
         int fdpipe[2];
         pipe(fdpipe);
         oufd = fdpipe[1];
-        infd = fdpipe[1];
+        infd = fdpipe[0];
       }
 
       dup2(oufd, 1);
