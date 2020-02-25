@@ -148,7 +148,8 @@ void Command::execute() {
       erfd = dup(tmper);
     }
     int ret;
-
+    size_t simpleNum = _simpleCommandsArray.size();
+    printf("size%zu\n", simpleNum);
     for (size_t j = 0; j < _simpleCommandsArray.size(); j++) {
       printf("count:%zu\n", j);
       dup2(infd, 0);
