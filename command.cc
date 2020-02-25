@@ -202,7 +202,7 @@ void Command::execute() {
 
       }
       arr[i] = NULL;
-      //printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
+      printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
       if (ret == 0) {
       //printf("execute\n");
         execvp(arr[0], arr);
