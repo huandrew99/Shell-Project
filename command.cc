@@ -201,7 +201,7 @@ void Command::execute() {
         arr[i] = strdup(_simpleCommandsArray[j]->_argumentsArray[i]->c_str());
 
       }
-      arr[i] = NULL;
+      arr[i + 1] = NULL;
       printf("i:%zu\n", i);
       printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
       if (ret == 0) {
