@@ -130,14 +130,14 @@ void Command::execute() {
     }
     if (_errFileName) {
       if (_append) {
-        erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0600);
+        erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0664);
         if (erfd < 0) {
           perror("open");
           exit(1);
         }
       }
       else {
-        erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600);
+        erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0664);
         if (erfd < 0) {
           perror("open");
           exit(1);
