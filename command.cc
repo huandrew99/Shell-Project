@@ -135,9 +135,6 @@ void Command::execute() {
         perror("fork");
         exit(2);
       }
-      else {
-        waitpid(ret, NULL, 0);
-      }
     }
     //printf("clear\n");
 
@@ -152,7 +149,7 @@ void Command::execute() {
 
     if (!_backgnd) {
       printf("!background\n");
-      waitpid(ret, 0, 0);
+      waitpid(ret, NULL, 0);
     }
     // Clear to prepare for next command
     clear();
