@@ -122,7 +122,7 @@ void Command::execute() {
         perror("open");
         exit(1);
       }
-      printf("inF\n");
+      //printf("inF\n");
     }
     else {
       infd = dup(tmpin);
@@ -141,7 +141,28 @@ void Command::execute() {
 
     for (size_t j = 0; j < _simpleCommandsArray.size(); j++) {
       printf("count:%zu\n", j);
+      dup2(infd, 0);
+      close(infd);
+      dup2(erfd, 2);
+      close(erfd);
+      if (j == _simpleCommandsArray.size() - 1) {
+        if (_outFileName) {
+          oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600)
+          if (oufd < 0) {
+            perror("open");
+            exit(1);
+          }
+        }
+        else {
+          oufd = dup(tmpou);
+        }
+        
+      }
+      dup2(oufd, 1);
+      close(oufd);
+
       ret = fork();
+
       size_t argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
       char ** arr = new char *[argument_size + 1];
       size_t i = 0;
