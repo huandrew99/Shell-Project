@@ -115,7 +115,6 @@ void Command::execute() {
 
     int infd;
     int erfd;
-    int oufd;
 
     if (_inFileName) {
       infd = open(_inFileName->c_str(), O_RDONLY);
@@ -150,6 +149,7 @@ void Command::execute() {
     int ret;
     size_t simpleNum = _simpleCommandsArray.size();
     printf("size%zu\n", simpleNum);
+    int oufd
     for (size_t j = 0; j < simpleNum; j++) {
       printf("count:%zu\n", j);
       dup2(infd, 0);
