@@ -106,33 +106,34 @@ void Command::execute() {
 
     // Print contents of Command data structure
     print();
-    int defin = dup(0);
-    int defou = dup(1);
-    int defer = dup(2);
+    int tmpin = dup(0);
+    int tmpou = dup(1);
+    int tmper = dup(2);
+    for (int j = 0; j < _simpleCommandsArray.size(); j++) {
+      int ret = fork();
+      int argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
+      char ** arr = new char *[argument_size + 1];
+      int i = 0;
+      for (i = 0; i < argument_size; i++) {
+        arr[i] = strdup(_simpleCommandsArray[0]->_argumentsArray[i]->c_str());
 
-    int ret = fork();
-    int argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
-    char ** arr = new char *[argument_size + 1];
-    int i = 0;
-    for (i = 0; i < argument_size; i++) {
-      arr[i] = strdup(_simpleCommandsArray[0]->_argumentsArray[i]->c_str());
-
-    }
-    arr[i] = NULL;
-    //printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
-    if (ret == 0) {
+      }
+      arr[i] = NULL;
+      //printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
+      if (ret == 0) {
       //printf("execute\n");
-      execvp(arr[0], arr);
-      perror("execvp");
-      exit(1);
+        execvp(arr[0], arr);
+        perror("execvp");
+        exit(1);
       //printf("execute\n");
-    }
-    else if (ret == 0) {
-      perror("fork");
-      exit(2);
-    }
-    else {
-      waitpid(ret, NULL, 0);
+      }
+      else if (ret == 0) {
+        perror("fork");
+        exit(2);
+      }
+      else {
+        waitpid(ret, NULL, 0);
+      }
     }
     //printf("clear\n");
 
@@ -142,20 +143,15 @@ void Command::execute() {
     }*/
     // Add execution here
     // For every simple command fork a new process
-   // int ret = fork();
     // Setup i/o redirection
     // and call exec
 
-    //if (ret == 0) {
-
-   // }
     if (!_backgnd) {
       printf("!background\n");
-      waitpid(ret, NULL, 0);
+      waitpid(ret, 0, 0);
     }
     // Clear to prepare for next command
     clear();
-    
     // Print new prompt
     if (isatty(0)) {
       Shell::prompt();
