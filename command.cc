@@ -151,7 +151,8 @@ void Command::execute() {
     //printf("size%zu\n", simpleNum);
     int oufd;
     for (size_t j = 0; j < simpleNum; j++) {
-      //printf("count:%zu\n", j);
+      
+      printf("count:%zu\n", j);
       dup2(infd, 0);
       close(infd);
       dup2(erfd, 2);
