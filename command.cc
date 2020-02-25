@@ -182,7 +182,7 @@ void Command::execute() {
       else if (ret < 0) {
         perror("fork");
         exit(2);
-      }
+     
     }
     //printf("clear\n");
 
@@ -194,6 +194,13 @@ void Command::execute() {
     // For every simple command fork a new process
     // Setup i/o redirection
     // and call exec
+    
+    dup2(tmpin, 0);
+    dup2(tepou, 1);
+    dup2(tmper, 2);
+    close(tmpin);
+    close(tmpou);
+    close(tmper);
 
     if (!_backgnd) {
       printf("!background\n");
