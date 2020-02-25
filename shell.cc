@@ -1,6 +1,14 @@
 #include <cstdio>
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "shell.hh"
+
+extern "C" void disp( int sig ) {
+  fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
+}
 
 int yyparse(void);
 
@@ -10,6 +18,15 @@ void Shell::prompt() {
 }
 
 int main() {
+  struct sigaction sa;
+  sa.sa_handler = disp;
+  sa.sa_flags = 0;
+
+  if (sigaction(SIGINT, &sa, NULL)) {
+    perror("sigaction");
+    exit(2);
+  }
+
   Shell::prompt();
   yyparse();
 }
