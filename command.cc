@@ -180,6 +180,7 @@ void Command::execute() {
         
       }
       else {
+        printf("pipe\n");
         int fdpipe[2];
         pipe(fdpipe);
         infd = fdpipe[0];
