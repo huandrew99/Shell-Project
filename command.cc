@@ -120,6 +120,7 @@ void Command::execute() {
       infd = open(_inFileName->c_str(), O_RDONLY);
       if (infd < 0) {
         perror("open");
+        printf("not intput");
         exit(1);
       }
       //printf("inF\n");
