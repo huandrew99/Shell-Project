@@ -182,7 +182,7 @@ void Command::execute() {
       else if (ret < 0) {
         perror("fork");
         exit(2);
-     
+     }
     }
     //printf("clear\n");
 
