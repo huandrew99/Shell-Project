@@ -122,6 +122,7 @@ void Command::execute() {
         perror("open");
         exit(1);
       }
+      printf("inF\n")
     }
     else {
       infd = dup(tmpin);
