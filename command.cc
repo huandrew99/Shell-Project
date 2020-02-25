@@ -120,8 +120,8 @@ void Command::execute() {
       infd = open(_inFileName->c_str(), O_RDONLY);
       if (infd < 0) {
         perror("open");
-        printf("not intput");
         exit(1);
+
       }
       //printf("inF\n");
     }
@@ -133,7 +133,8 @@ void Command::execute() {
         erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0664);
         if (erfd < 0) {
           perror("open");
-          exit(1);
+          return;
+          //exit(1);
         }
       }
       else {
