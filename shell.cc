@@ -8,6 +8,8 @@
 
 extern "C" void disp( int sig ) {
   fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
+  Shell::prompt();
+  yyparse();
 }
 
 int yyparse(void);
@@ -26,7 +28,6 @@ int main() {
     perror("sigaction");
     exit(2);
   }
-
   Shell::prompt();
   yyparse();
 }
