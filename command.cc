@@ -158,6 +158,7 @@ void Command::execute() {
       if (j == _simpleCommandsArray.size() - 1) {
         if (_outFileName) {
           if (_append) {
+            printf("outappend\n");
             oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0600);
             if (oufd < 0) {
               perror("open");
@@ -165,6 +166,7 @@ void Command::execute() {
             }
           }
           else {
+            printf("Outnotappend\n");
             oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600);
             if (oufd < 0) {
               perror("open");
