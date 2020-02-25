@@ -110,7 +110,24 @@ void Command::execute() {
     int tmpou = dup(1);
     int tmper = dup(2);
     if (_inFileName) {
-      //int infd =
+      int infd = open(_inFileName->c_str(), O_RDONLY);
+      if (infd < 0) {
+        perror("open");
+        exit(1);
+      }
+    }
+    else {
+      infd = dup(tmpin);
+    }
+    if (_errFileName) {
+      int erfd = open(_errFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600);
+      if (erfd < 0) {
+        perror("open");
+        exit(1);
+      }
+    }
+    else {
+      erfd = dup(tmper);
     }
     int ret;
 
