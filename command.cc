@@ -202,7 +202,9 @@ void Command::execute() {
 
       }
       arr[i] = NULL;
-      printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
+      for (size_t k = 0; k < argument_size; k++) {
+        printf("arr[%zu] %s\n", k, arr[k]);
+      }
       if (ret == 0) {
       //printf("execute\n");
         execvp(arr[0], arr);
