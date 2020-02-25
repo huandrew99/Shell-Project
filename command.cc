@@ -148,10 +148,10 @@ void Command::execute() {
     }
     int ret;
     size_t simpleNum = _simpleCommandsArray.size();
-    printf("size%zu\n", simpleNum);
+    //printf("size%zu\n", simpleNum);
     int oufd;
     for (size_t j = 0; j < simpleNum; j++) {
-      printf("count:%zu\n", j);
+      //printf("count:%zu\n", j);
       dup2(infd, 0);
       close(infd);
       dup2(erfd, 2);
@@ -159,7 +159,7 @@ void Command::execute() {
       if (j == simpleNum - 1) {
         if (_outFileName) {
           if (_append) {
-            printf("outappend\n");
+            //printf("outappend\n");
             oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_APPEND, 0664);
             if (oufd < 0) {
               perror("open");
@@ -167,7 +167,7 @@ void Command::execute() {
             }
           }
           else {
-            printf("Outnotappend\n");
+            //printf("Outnotappend\n");
             oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0664);
             if (oufd < 0) {
               perror("open");
@@ -181,7 +181,7 @@ void Command::execute() {
         
       }
       else {
-        printf("pipe\n");
+        //printf("pipe\n");
         int fdpipe[2];
         pipe(fdpipe);
         oufd = fdpipe[1];
@@ -233,7 +233,7 @@ void Command::execute() {
     close(tmper);
 
     if (!_backgnd) {
-      printf("!background\n");
+      //printf("!background\n");
       waitpid(ret, NULL, 0);
     }
     // Clear to prepare for next command
