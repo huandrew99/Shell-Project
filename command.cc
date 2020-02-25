@@ -114,7 +114,7 @@ void Command::execute() {
 
     for (size_t j = 0; j < _simpleCommandsArray.size(); j++) {
       int ret = fork();
-      int argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
+      size_t argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
       char ** arr = new char *[argument_size + 1];
       size_t i = 0;
       for (i = 0; i < argument_size; i++) {
