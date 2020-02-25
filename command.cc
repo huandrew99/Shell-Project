@@ -113,6 +113,7 @@ void Command::execute() {
     int ret = 0;
 
     for (size_t j = 0; j < _simpleCommandsArray.size(); j++) {
+      printf("count:%d\n", j);
       int ret = fork();
       size_t argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
       char ** arr = new char *[argument_size + 1];
