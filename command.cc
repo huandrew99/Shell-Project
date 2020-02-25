@@ -131,7 +131,7 @@ void Command::execute() {
         exit(1);
       //printf("execute\n");
       }
-      else if (ret == 0) {
+      else if (ret < 0) {
         perror("fork");
         exit(2);
       }
