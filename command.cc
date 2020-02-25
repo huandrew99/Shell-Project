@@ -114,7 +114,7 @@ void Command::execute() {
 
     for (size_t j = 0; j < _simpleCommandsArray.size(); j++) {
       printf("count:%zu\n", j);
-      int ret = fork();
+      ret = fork();
       size_t argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
       char ** arr = new char *[argument_size + 1];
       size_t i = 0;
@@ -147,10 +147,10 @@ void Command::execute() {
     // Setup i/o redirection
     // and call exec
 
-    /*if (!_backgnd) {
+    if (!_backgnd) {
       printf("!background\n");
       waitpid(ret, NULL, 0);
-    }*/
+    }
     // Clear to prepare for next command
     clear();
     // Print new prompt
