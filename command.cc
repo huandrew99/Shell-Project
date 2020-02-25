@@ -109,6 +109,9 @@ void Command::execute() {
     int tmpin = dup(0);
     int tmpou = dup(1);
     int tmper = dup(2);
+
+    int ret;
+
     for (int j = 0; j < _simpleCommandsArray.size(); j++) {
       int ret = fork();
       int argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
