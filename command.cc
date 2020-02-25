@@ -194,15 +194,14 @@ void Command::execute() {
 
       ret = fork();
 
-      size_t argument_size = _simpleCommandsArray[0]->_argumentsArray.size();
+      size_t argument_size = _simpleCommandsArray[j]->_argumentsArray.size();
       char ** arr = new char *[argument_size + 1];
       size_t i = 0;
       for (i = 0; i < argument_size; i++) {
         arr[i] = strdup(_simpleCommandsArray[j]->_argumentsArray[i]->c_str());
 
       }
-      arr[i + 1] = NULL;
-      printf("i:%zu\n", i + 1);
+      arr[i] = NULL;
       printf("arr0 %s, arr1 %s\n", arr[0], arr[1]);
       if (ret == 0) {
       //printf("execute\n");
