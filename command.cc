@@ -147,7 +147,7 @@ void Command::execute() {
       close(erfd);
       if (j == _simpleCommandsArray.size() - 1) {
         if (_outFileName) {
-          oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600)
+          oufd = open(_outFileName->c_str(), O_WRONLY|O_CREAT|O_TRUNC, 0600);
           if (oufd < 0) {
             perror("open");
             exit(1);
