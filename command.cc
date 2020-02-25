@@ -147,10 +147,10 @@ void Command::execute() {
     // Setup i/o redirection
     // and call exec
 
-    if (!_backgnd) {
+    /*if (!_backgnd) {
       printf("!background\n");
       waitpid(ret, NULL, 0);
-    }
+    }*/
     // Clear to prepare for next command
     clear();
     // Print new prompt
