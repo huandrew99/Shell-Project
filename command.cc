@@ -37,6 +37,7 @@ Command::Command() {
     _outFileName = NULL;
     _inFileName = NULL;
     _errFileName = NULL;
+    _append = false;
     _backgnd = false;
 }
 
