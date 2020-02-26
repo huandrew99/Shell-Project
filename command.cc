@@ -75,6 +75,8 @@ void Command::clear() {
     _errFileName = NULL;
     _append = false;
     _backgnd = false;
+    _outCount = 0;
+    _inCount = 0;
 }
 
 void Command::print() {
