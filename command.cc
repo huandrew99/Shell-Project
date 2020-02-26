@@ -230,7 +230,7 @@ void Command::execute() {
       if (ret == 0) {
       //printf("execute\n");
         execvp(arr[0], arr);
-        perror("%s: command not found\n", arr[0]);
+        fprintf(stderr, "%s: command not found\n", arr[0]);
         //perror("execvp");
         exit(1);
       //printf("execute\n");
