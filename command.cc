@@ -117,7 +117,7 @@ void Command::execute() {
       printf("Ambiguous output redirect.\n");
       clear();
       if (isatty(0)) {
-        shell::prompt();
+        Shell::prompt();
       }
       return;
     }
