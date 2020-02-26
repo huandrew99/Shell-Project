@@ -153,7 +153,7 @@ void Command::execute() {
     int oufd;
     for (size_t j = 0; j < simpleNum; j++) {
       
-      printf("count:%zu\n", j);
+      //printf("count:%zu\n", j);
       dup2(infd, 0);
       close(infd);
       dup2(erfd, 2);
@@ -198,14 +198,16 @@ void Command::execute() {
       size_t argument_size = _simpleCommandsArray[j]->_argumentsArray.size();
       char ** arr = new char *[argument_size + 1];
       size_t i = 0;
+      // convert vectors to string array
       for (i = 0; i < argument_size; i++) {
         arr[i] = strdup(_simpleCommandsArray[j]->_argumentsArray[i]->c_str());
 
       }
       arr[i] = NULL;
-      for (size_t k = 0; k < argument_size; k++) {
+      
+      /*for (size_t k = 0; k < argument_size; k++) {
         printf("arr[%zu] %s\n", k, arr[k]);
-      }
+      }*/
       if (ret == 0) {
       //printf("execute\n");
         execvp(arr[0], arr);
