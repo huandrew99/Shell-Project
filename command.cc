@@ -111,7 +111,16 @@ void Command::execute() {
         }
         return;
     }
-    
+
+
+    if (_outCount > 1 || _inCount > 1) {
+      printf("Ambiguous output redirect.\n");
+      clear();
+      if (isatty(0)) {
+        shell::prompt();
+      }
+      return;
+    }
 
     // Print contents of Command data structure
     //print();
