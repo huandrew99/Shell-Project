@@ -101,13 +101,13 @@ iomodifier_opt:
   GREAT WORD {
     /* printf("   Yacc: insert output \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._outFileName = $2;
-    Shell::_currentCommand._outCount = Shell::currentCommand._outCount + 1;
+    Shell::_currentCommand._outCount = Shell::_currentCommand._outCount + 1;
   }
   | GREATGREAT WORD {
     /* printf("   Yacc: insert output append \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._append = true;
     Shell::_currentCommand._outFileName = $2;
-    Shell::_currentCommand._outCount = Shell::currentCommand._outCount + 1;
+    Shell::_currentCommand._outCount = Shell::_currentCommand._outCount + 1;
   }
   | GREATGREATAMPERSAND WORD {
     /* printf("   Yacc: insert output >>& \"%s\"\n", $2->c_str()); */
@@ -116,12 +116,12 @@ iomodifier_opt:
     std::string *arg = new std::string;
     *arg = *($2);
     Shell::_currentCommand._errFileName = arg;
-    Shell::_currentCommand._outCount = Shell::currentCommand._outCount + 1;
+    Shell::_currentCommand._outCount = Shell::_currentCommand._outCount + 1;
   }
   | LESS WORD {
     /* printf("   Yacc: insert input \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._inFileName = $2;
-    Shell::_currentCommand._inCount = Shell::currentCommand._inCount + 1;
+    Shell::_currentCommand._inCount = Shell::_currentCommand._inCount + 1;
   }
   | GREATAMPERSAND WORD {
     /* printf("   Yacc: insert output >& \"%s\"\n", $2->c_str()); */
@@ -129,7 +129,7 @@ iomodifier_opt:
     std::string *arg = new std::string;
     *arg = *($2);
     Shell::_currentCommand._errFileName = arg;
-    Shell::_currentCommand._outCount = Shell::currentCommand._outCount + 1;
+    Shell::_currentCommand._outCount = Shell::_currentCommand._outCount + 1;
   }
   | TWOGREAT WORD {
     /* printf("   Yacc: insert stderr >& \"%s\"\n", $2->c_str()); */
