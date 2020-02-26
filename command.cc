@@ -40,7 +40,6 @@ Command::Command() {
     _append = false;
     _backgnd = false;
     _outCount = 0;
-    _inCount = 0;
 
 }
 
@@ -76,7 +75,6 @@ void Command::clear() {
     _append = false;
     _backgnd = false;
     _outCount = 0;
-    _inCount = 0;
 }
 
 void Command::print() {
@@ -119,8 +117,8 @@ void Command::execute() {
       exit(1);
     }
 
-    printf("out: %d, in: %d\n", _outCount, _inCount);
-    if (_outCount > 1 || _inCount > 1) {
+    printf("out: %d, _outCount");
+    if (_outCount > 1) {
       printf("Ambiguous output redirect.\n");
       clear();
       if (isatty(0)) {
