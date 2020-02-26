@@ -29,7 +29,7 @@ int main() {
     perror("sigaction");
     exit(2);
   }
-
+  
   if (isatty(0)) {
     Shell::prompt();
   }
