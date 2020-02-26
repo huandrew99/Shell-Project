@@ -117,7 +117,7 @@ void Command::execute() {
       exit(1);
     }
 
-    printf("out: %d", _outCount);
+    //printf("out: %d", _outCount);
     if (_outCount > 1) {
       printf("Ambiguous output redirect.\n");
       clear();
