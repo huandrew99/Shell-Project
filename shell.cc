@@ -9,7 +9,7 @@
 
 extern "C" void disp( int sig ) {
   //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
-  Shell::clear();
+  Command::clear();
   Shell::prompt();
 
 }
