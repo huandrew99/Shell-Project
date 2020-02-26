@@ -39,6 +39,7 @@ Command::Command() {
     _errFileName = NULL;
     _append = false;
     _backgnd = false;
+    _outCount = 0;
 }
 
 void Command::insertSimpleCommand( SimpleCommand * simpleCommand ) {
