@@ -57,7 +57,7 @@ command: simple_command
 
 simple_command:	
   pipe_list iomodifier_list background_opt NEWLINE {
-    printf("   Yacc: Execute command\n");
+    /* printf("   Yacc: Execute command\n"); */
     Shell::_currentCommand.execute();
   }
   | NEWLINE { Shell::_currentCommand.execute(); }
@@ -79,7 +79,7 @@ argument_list:
 
 argument:
   WORD {
-    printf("   Yacc: insert argument \"%s\"\n", $1->c_str());
+    /* printf("   Yacc: insert argument \"%s\"\n", $1->c_str()); */
     Command::_currSimpleCommand->insertArgument( $1 );\
   }
   ;
@@ -91,7 +91,7 @@ pipe_list:
 
 command_word:
   WORD {
-    printf("   Yacc: insert command \"%s\"\n", $1->c_str());
+    /* printf("   Yacc: insert command \"%s\"\n", $1->c_str()); */
     Command::_currSimpleCommand = new SimpleCommand();
     Command::_currSimpleCommand->insertArgument( $1 );
   }
@@ -99,16 +99,16 @@ command_word:
 
 iomodifier_opt:
   GREAT WORD {
-    printf("   Yacc: insert output \"%s\"\n", $2->c_str());
+    /* printf("   Yacc: insert output \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._outFileName = $2;
   }
   | GREATGREAT WORD {
-    printf("   Yacc: insert output append \"%s\"\n", $2->c_str());
+    /* printf("   Yacc: insert output append \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._append = true;
     Shell::_currentCommand._outFileName = $2;
   }
   | GREATGREATAMPERSAND WORD {
-    printf("   Yacc: insert output >>& \"%s\"\n", $2->c_str());
+    /* printf("   Yacc: insert output >>& \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._append = true;
     Shell::_currentCommand._outFileName = $2;
     std::string *arg = new std::string;
@@ -116,18 +116,18 @@ iomodifier_opt:
     Shell::_currentCommand._errFileName = arg;
   }
   | LESS WORD {
-    printf("   Yacc: insert input \"%s\"\n", $2->c_str());
+    /* printf("   Yacc: insert input \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._inFileName = $2;
   }
   | GREATAMPERSAND WORD {
-    printf("   Yacc: insert output >& \"%s\"\n", $2->c_str());
+    /* printf("   Yacc: insert output >& \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._outFileName = $2;
     std::string *arg = new std::string;
     *arg = *($2);
     Shell::_currentCommand._errFileName = arg;
   }
   | TWOGREAT WORD {
-    printf("   Yacc: insert stderr >& \"%s\"\n", $2->c_str());
+    /* printf("   Yacc: insert stderr >& \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._errFileName = $2;
   }
 
