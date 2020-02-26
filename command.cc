@@ -40,6 +40,8 @@ Command::Command() {
     _append = false;
     _backgnd = false;
     _outCount = 0;
+    _inCount = 0;
+
 }
 
 void Command::insertSimpleCommand( SimpleCommand * simpleCommand ) {
