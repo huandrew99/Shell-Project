@@ -106,6 +106,7 @@ void Command::execute() {
         Shell::prompt();
         return;
     }
+    
 
     // Print contents of Command data structure
     print();
