@@ -66,7 +66,7 @@ simple_command:
 
 command_and_args:
   command_word argument_list {
-    Command::_currSimpleCommand->print();
+    /* Command::_currSimpleCommand->print(); */
     Shell::_currentCommand.
     insertSimpleCommand( Command::_currSimpleCommand );
   }
