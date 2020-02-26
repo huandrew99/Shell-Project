@@ -112,7 +112,7 @@ void Command::execute() {
         return;
     }
 
-
+    printf("out: %d, in: %d\n", _outCount, _inCount);
     if (_outCount > 1 || _inCount > 1) {
       printf("Ambiguous output redirect.\n");
       clear();
