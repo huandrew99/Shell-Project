@@ -121,7 +121,6 @@ iomodifier_opt:
   | LESS WORD {
     /* printf("   Yacc: insert input \"%s\"\n", $2->c_str()); */
     Shell::_currentCommand._inFileName = $2;
-    Shell::_currentCommand._inCount = Shell::_currentCommand._inCount + 1;
   }
   | GREATAMPERSAND WORD {
     /* printf("   Yacc: insert output >& \"%s\"\n", $2->c_str()); */
