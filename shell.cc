@@ -24,14 +24,14 @@ void Shell::prompt() {
 }
 
 int main() {
-  struct sigaction sa;
+  /*struct sigaction sa;
   sa.sa_handler = disp;
   sa.sa_flags = SA_RESTART;
 
   if (sigaction(SIGINT, &sa, NULL)) {
     perror("sigaction");
     exit(2);
-  }
+  }*/
   
   if (isatty(0)) {
     Shell::prompt();
