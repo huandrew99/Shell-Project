@@ -9,8 +9,10 @@
 
 extern "C" void disp( int sig ) {
   //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
-  printf("\n");
-  Shell::prompt();
+  if (sig == SIGINT) {
+    printf("\n");
+    Shell::prompt();
+  }
 
 }
 
