@@ -230,7 +230,7 @@ void Command::execute() {
       }*/
       if (ret == 0) {
       //printf("execute\n");
-        if (!strcmp(_simpleCommandsArray[j]->_argumentsArray[0], "printenv")) {
+        if (!strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "printenv")) {
           char **p=environ;
           while (*p != NULL) {
             printf("%s\n", *p);
