@@ -38,6 +38,7 @@ int main() {
   }
 
   yyparse();
+
 }
 
 Command Shell::_currentCommand;
