@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 #include "command.hh"
 #include "shell.hh"
@@ -48,7 +49,7 @@ int main() {
   sigemptyset(&sa_zombie.sa_mask);
   sa_zombie.sa_flags = SA_RESTART;
   
-  if (sigaction(SIGCHLD, &sa_zomble, NULL)) {
+  if (sigaction(SIGCHLD, &sa_zombie, NULL)) {
     perror("sigaction");
     exit(2);
   }
