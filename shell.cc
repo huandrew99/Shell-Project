@@ -9,7 +9,7 @@
 #include "shell.hh"
 
 extern "C" void disp( int sig ) {
-  //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
+  fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
   if (sig == SIGINT) {
     printf("\n");
     //printf("myshell>");
