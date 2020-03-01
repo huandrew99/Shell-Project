@@ -236,6 +236,7 @@ void Command::execute() {
             printf("%s\n", *p);
             p++;
           }
+          fflush(stdout);
           _exit(0);
         }
         execvp(arr[0], arr);
