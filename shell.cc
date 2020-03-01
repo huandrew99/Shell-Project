@@ -11,9 +11,8 @@
 extern "C" void disp( int sig ) {
   //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
   if (sig == SIGINT) {
-    exit(0);
-    //printf("\n");
-    //Shell::prompt();
+    printf("\n");
+    Shell::prompt();
   }
 
 }
