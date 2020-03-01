@@ -29,6 +29,7 @@
 #include "command.hh"
 #include "shell.hh"
 
+extern char **environ;
 
 Command::Command() {
     // Initialize a new vector of Simple Commands
@@ -229,6 +230,14 @@ void Command::execute() {
       }*/
       if (ret == 0) {
       //printf("execute\n");
+        if (!strcmp(_simpleCommandsArray[j]->_argumentsArray[0], "printenv")) {
+          char **p=environ;
+          while (*p! = NULL) {
+            printf("%s\n", *p);
+            p++;
+          }
+          _exit(0);
+        }
         execvp(arr[0], arr);
         fprintf(stderr, "%s: command not found\n", arr[0]);
         //perror("execvp");
