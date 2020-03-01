@@ -5,6 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 
+#include "command.hh"
 #include "shell.hh"
 
 extern "C" void disp( int sig ) {
