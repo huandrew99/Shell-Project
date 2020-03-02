@@ -20,8 +20,8 @@ extern "C" void disp( int sig ) {
 }
 
 extern "C" void zombie( int sig) {
-  pid_t pid = wait3(0,0,NULL);
-  if (waitpid(-1, NULL, WNOHANG) > 0) {
+  pid_t pid;
+  while (pid = waitpid(-1, NULL, WNOHANG) > 0) {
     printf("\n[%d] exited.", pid);
   }
 }
