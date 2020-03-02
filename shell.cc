@@ -28,7 +28,9 @@ extern "C" void zombie(int sig) {
   pid_t pid = wait3(0,0,NULL);
   
   while ((waitpid(-1, NULL, WNOHANG)) > 0) {
-    printf("\n[%d] exited.\n", pid);
+    if (Shell::_currentCommand._backgnd) {
+      printf("\n[%d] exited.\n", pid);
+    }
   }
 }
 
