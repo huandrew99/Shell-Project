@@ -73,7 +73,7 @@ extern int yyleng;
   //yylval.cpp_string = new std::string(yytext);
   //char * result = [yyleng];
   //char * cursor = yytext;
-  char * result = new std::string(yytext);
+  std::string result = new std::string(yytext);
   yylval.cpp_string = result;
   return WORD;
 }
