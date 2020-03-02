@@ -215,7 +215,7 @@ void Command::execute() {
         else {
           if ((chdir(_simpleCommandsArray[j]->_argumentsArray[1]->c_str())) != 0) {
             fprintf(stderr, "cd: can't cd to %s\n", _simpleCommandsArray[j]->_argumentsArray[1]->c_str());
-            exit(1);
+            
           }
         }
         clear();
