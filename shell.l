@@ -13,11 +13,14 @@
 #include <cstring>
 #include "y.tab.hh"
 
+
 static  void yyunput (int c,char *buf_ptr  );
 
 void myunputc(int c) {
   unput(c);
 }
+
+extern int yyleng;
 
 %}
 
@@ -67,7 +70,11 @@ void myunputc(int c) {
 }
 
 \"[^\n\"]*\" {
-  yylval.cpp_string = new std::string(yytext);
+  //yylval.cpp_string = new std::string(yytext);
+  //char * result = [yyleng];
+  //char * cursor = yytext;
+  char * result = new std::string(yytext);
+  yylval.cpp_string = result;
   return WORD;
 }
 
