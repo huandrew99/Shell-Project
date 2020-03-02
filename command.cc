@@ -284,7 +284,7 @@ void Command::execute() {
             p++;
           }
           //fflush(stdout);
-          _exit(1);
+          //_exit(1);
         }
         execvp(arr[0], arr);
         fprintf(stderr, "%s: command not found\n", arr[0]);
