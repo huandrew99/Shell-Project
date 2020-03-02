@@ -182,24 +182,34 @@ void Command::execute() {
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "setenv") == 0) {
         setenv(_simpleCommandsArray[j]->_argumentsArray[1]->c_str(), _simpleCommandsArray[j]->_argumentsArray[2]->c_str(), true);
         clear();
-        Shell::prompt();
+        if (isatty(0)) {
+          Shell::prompt();
+        }
         return;
       }
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "unsetenv") == 0) {
         unsetenv(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
         clear();
-        Shell::prompt();
+        if (isatty(0)) {
+          Shell::prompt();
+        }
         return;
       }
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "source") == 0) {
         clear();
-        Shell::prompt();
+        if (isatty(0)) {
+          Shell::prompt();
+        }
         return;
       }
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "cd") == 0) {
+        if (_simpleCommandsArray[j]->_argumentsArray.size() == 1) {
+          
+          //chdir()
+        }
         chdir(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
         clear();
         if (isatty(0)) {
