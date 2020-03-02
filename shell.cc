@@ -9,7 +9,8 @@
 #include "command.hh"
 #include "shell.hh"
 
-extern "C" void disp() {
+extern "C" void disp(int sig) {
+
   //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
       //if (Command::_currSimpleCommand == NULL) {
         printf("\n");
@@ -23,7 +24,7 @@ extern "C" void disp() {
 
 }
 
-extern "C" void zombie() {
+extern "C" void zombie(int sig) {
   pid_t pid = waitpid(-1,NULL,WNOHANG);
   
   while ((waitpid(-1, NULL, WNOHANG)) > 0) {
