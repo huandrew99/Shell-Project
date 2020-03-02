@@ -74,7 +74,9 @@ extern int yyleng;
   //char * result = [yyleng];
   //char * cursor = yytext;
   std::string *result = new std::string(yytext);
-  *result = *(result)->substr(1, *(result)->size()-2);
+  std::string copy = *result;
+  copy = copy.substr(1, copy.size()-2);
+  *result = copy
   yylval.cpp_string = result;
   return WORD;
 }
