@@ -11,7 +11,7 @@
 
 extern "C" void disp( int sig ) {
   //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
-      if (Shell::_currentCommand._currSimpleCommand == NULL) {
+      if (Command::_currSimpleCommand == NULL) {
         printf("\n");
     //printf("myshell>");
         Shell::prompt();
