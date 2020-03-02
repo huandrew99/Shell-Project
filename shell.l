@@ -77,6 +77,7 @@ extern int yyleng;
   std::string copy = *result;
   copy = copy.substr(1, copy.size()-2);
   *result = copy;
+  delete(copy);
   yylval.cpp_string = result;
   return WORD;
 }
