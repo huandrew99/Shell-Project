@@ -19,7 +19,7 @@ extern "C" void disp( int sig ) {
       
       }else {
       printf("\n");
-      Shell::prompt();
+      fflush(stdout);
       }
   }
 
