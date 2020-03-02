@@ -179,8 +179,8 @@ void Command::execute() {
       dup2(erfd, 2);
       close(erfd);
 
-      if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0], "setenv") == 0) {
-        setenv(_simpleCommandsArray[j]->_argumentsArray[1], _simpleCommandsArray[j]->_argumentsArray[2], 1);
+      if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "setenv") == 0) {
+        setenv(_simpleCommandsArray[j]->_argumentsArray[1]->c_str(), _simpleCommandsArray[j]->_argumentsArray[2]->c_str(), 1);
         clear();
         Shell::prompt();
         return;
