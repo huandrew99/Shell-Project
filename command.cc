@@ -115,7 +115,7 @@ void Command::execute() {
 
     if ( !strcmp(_simpleCommandsArray[0]->_argumentsArray[0]->c_str(), "exit") ) {
       printf("Goodbye!!\n");
-      exit(1);
+      exit(0);
     }
 
     //printf("out: %d", _outCount);
