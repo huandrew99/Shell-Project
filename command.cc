@@ -182,7 +182,7 @@ void Command::execute() {
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0], "setenv") == 0) {
         setenv(_simpleCommandsArray[j]->_argumentsArray[1], _simpleCommandsArray[j]->_argumentsArray[2], 1);
         clear();
-        shell::prompt();
+        Shell::prompt();
         return;
       }
 
