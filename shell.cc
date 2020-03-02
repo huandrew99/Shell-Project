@@ -17,8 +17,9 @@ extern "C" void disp( int sig ) {
     //printf("myshell>");
         Shell::prompt();
       
-      }
+      }else {
       printf(":\n");
+      }
   }
 
 }
