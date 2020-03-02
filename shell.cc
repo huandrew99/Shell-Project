@@ -11,7 +11,6 @@
 
 extern "C" void disp( int sig ) {
   //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
-  if (sig == SIGINT) {
       if (Shell::_currentCommand._currSimpleCommand == NULL) {
         printf("\n");
     //printf("myshell>");
@@ -21,7 +20,6 @@ extern "C" void disp( int sig ) {
       printf("\n");
       fflush(stdout);
       }
-  }
 
 }
 
