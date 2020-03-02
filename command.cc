@@ -187,7 +187,7 @@ void Command::execute() {
       }
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "unsetenv") == 0) {
-        unsetenv(_simpleCommandsArray[j]->_argumentsArray[1]);
+        unsetenv(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
         clear();
         Shell::prompt();
         return;
