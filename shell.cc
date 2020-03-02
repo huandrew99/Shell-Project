@@ -18,7 +18,8 @@ extern "C" void disp( int sig ) {
         Shell::prompt();
       
       }else {
-      printf(":\n");
+      printf("\n");
+      Shell::prompt();
       }
   }
 
