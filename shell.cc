@@ -12,7 +12,7 @@
 extern "C" void disp( int sig ) {
   //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
   if (sig == SIGINT) {
-      if (Shell::_currentCommand._currSimpleCommand->_argumentsArray == NULL) {
+      if (Shell::_currentCommand._currSimpleCommand->_argumentsArray[0] == NULL) {
         printf("\n");
     //printf("myshell>");
         Shell::prompt();
