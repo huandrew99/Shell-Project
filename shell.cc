@@ -28,7 +28,7 @@ extern "C" void zombie(int sig) {
   pid_t pid = waitpid(-1,NULL,WNOHANG);
   
   while ((waitpid(-1, NULL, WNOHANG)) > 0) {
-    printf("\n[%d] exited.", pid);
+    printf("\n[%d] exited.\n", pid);
   }
 }
 
