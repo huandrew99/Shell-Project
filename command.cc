@@ -207,10 +207,13 @@ void Command::execute() {
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "cd") == 0) {
         if (_simpleCommandsArray[j]->_argumentsArray.size() == 1) {
-          
+          const char * home = getpwuid(getuid())->pw_dir;
+          chdir(home);
           //chdir()
         }
-        chdir(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
+        else
+          chdir(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
+        }
         clear();
         if (isatty(0)) {
           Shell::prompt();
