@@ -201,7 +201,9 @@ void Command::execute() {
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "cd") == 0) {
         chdir(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
-
+        clear();
+        Shell::prompt();
+        return;
       }
 
       if (j == simpleNum - 1) {
