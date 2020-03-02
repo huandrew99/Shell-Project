@@ -199,6 +199,11 @@ void Command::execute() {
         return;
       }
 
+      if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "cd") == 0) {
+        chdir(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
+
+      }
+
       if (j == simpleNum - 1) {
         if (_outFileName) {
           if (_append) {
