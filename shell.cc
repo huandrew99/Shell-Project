@@ -12,11 +12,9 @@
 extern "C" void disp( int sig ) {
   //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
   if (sig == SIGINT) {
-    if (Shell::_currentCommand._argumentsArray.size() == 0) {
       printf("\n");
     //printf("myshell>");
       Shell::prompt();
-    }
   }
 
 }
