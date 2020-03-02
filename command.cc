@@ -180,7 +180,14 @@ void Command::execute() {
       close(erfd);
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "setenv") == 0) {
-        setenv(_simpleCommandsArray[j]->_argumentsArray[1]->c_str(), _simpleCommandsArray[j]->_argumentsArray[2]->c_str(), 1);
+        setenv(_simpleCommandsArray[j]->_argumentsArray[1]->c_str(), _simpleCommandsArray[j]->_argumentsArray[2]->c_str(), true);
+        clear();
+        Shell::prompt();
+        return;
+      }
+
+      if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "unsetenv") == 0) {
+        unsetenv(_simpleCommandsArray[j]->_argumentsArray[1]);
         clear();
         Shell::prompt();
         return;
