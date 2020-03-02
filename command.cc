@@ -283,7 +283,7 @@ void Command::execute() {
             printf("%s\n", *p);
             p++;
           }
-          fflush(stdout);
+          //fflush(stdout);
           _exit(1);
         }
         execvp(arr[0], arr);
