@@ -211,7 +211,7 @@ void Command::execute() {
           chdir(home);
           //chdir()
         }
-        else
+        else {
           chdir(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
         }
         clear();
