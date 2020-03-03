@@ -127,7 +127,7 @@ extern int yyleng;
   pipe(pin);
   pipe(pout);
 
-  write(pin[1], result->c_str(), strlen(result));
+  write(pin[1], result->c_str(), strlen(result->c_str()));
   write(pin[1], "\n", 1);
   write(pin[1], "exit\n", 5);
   close(pin[1]);
