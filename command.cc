@@ -130,7 +130,7 @@ void Command::execute() {
     }
 
     // Print contents of Command data structure
-    print();
+    //print();
     int tmpin = dup(0);
     int tmpou = dup(1);
     int tmper = dup(2);
