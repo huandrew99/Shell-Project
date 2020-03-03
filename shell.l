@@ -151,22 +151,22 @@ extern int yyleng;
   close(temin);
   close(temou);
 
-  char * cha;
+  char cha;
   char * buffer = new char[9999];
   int read_ret = 0;
   int index = 0;
   while(1) {
-    read_ret = read(pout[0], cha, 1);
+    read_ret = read(pout[0], &cha, 1);
     if (read_ret != 1) {
       break;
     }
-    printf("%c", *cha);
+    printf("%c", cha);
     if (*cha == '\n') {
       buffer[index] = ' ';
       index++;
     }
     else {
-      buffer[index] = *cha;
+      buffer[index] = cha;
       index++;
     }
   }
