@@ -161,7 +161,7 @@ extern int yyleng;
       break;
     }
     printf("%c", cha);
-    if (*cha == '\n') {
+    if (cha == '\n') {
       buffer[index] = ' ';
       index++;
     }
