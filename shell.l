@@ -113,11 +113,10 @@ extern int yyleng;
 
 
 \$\([^\n\$]*\) {
-  std::string *result = new std::string(yytext+2);
-  result->pop_back();
-  //std::string copy = *result;
-  //copy = copy.substr(2, copy.size()-3);
-  //*result = copy;
+  std::string *result = new std::string(yytext);
+  std::string copy = *result;
+  copy = copy.substr(2, copy.size()-3);
+  *result = copy;
   /*int temin = dup(0);
   int temou = dup(1);
 
