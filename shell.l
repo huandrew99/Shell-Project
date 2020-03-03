@@ -80,7 +80,7 @@ extern int yyleng;
     if (!*str) {
       break;
     }
-    if (*str == "\\") {
+    if (*str == '\\') {
       str++;
       result2[index] = *str;
       index++;
