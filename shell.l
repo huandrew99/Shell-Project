@@ -130,6 +130,7 @@ extern int yyleng;
   write(pin[1], "\n", 1);
   write(pin[1], "exit\n", 5);
   close(pin[1]);
+  
   dup2(pin[0], 0);
   close(pin[0]);
   dup2(pout[1], 1);
@@ -152,7 +153,7 @@ extern int yyleng;
   close(temou);
 
   char cha;
-  char * buffer = new char[9999];
+  char * buffer = new char[5000];
   int read_ret = 0;
   int index = 0;
   while(1) {
@@ -160,7 +161,7 @@ extern int yyleng;
     if (read_ret != 1) {
       break;
     }
-    //printf("%c", cha);
+    printf("%c", cha);
     if (cha == '\n') {
       buffer[index] = ' ';
       index++;
