@@ -128,7 +128,7 @@ extern int yyleng;
 
   write(pin[1], result->c_str(), result->size());
   write(pin[1], "\n", 1);
-  write(pin[1]. "exit\n", 4);
+  write(pin[1]. "exit\n", 5);
   close(pin[1]);
 
   int ret = fork();
