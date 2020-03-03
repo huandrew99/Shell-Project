@@ -103,10 +103,47 @@ extern int yyleng;
   //yylval.cpp_string = new std::string(yytext);
   //char * result = [yyleng];
   //char * cursor = yytext;
-  std::string *result = new std::string(yytext);
-  std::string copy = *result;
-  copy = copy.substr(1, copy.size()-2);
-  *result = copy;
+  std::string *result = new std::string(yytext+2);
+  //std::string copy = *result;
+  //copy = copy.substr(1, copy.size()-2);
+  //*result = copy;
+  /*int temin = dup(0);
+  int temou = dup(1);
+
+  int pin[2];
+  int pout[2];
+
+  pipe(pin);
+  pipe(pout);
+
+  write(pin[1], result->c_str(), result->size());
+  write(pin[1], "\n", 1);
+  write(pin[1]. "exit\n", 4);
+  close(pin[1]);
+
+  int ret = fork();
+  if (ret == 0) {
+    dup2(pin[0], 0);
+    close(pin[0]);
+    dup2(pout[1], 1);
+    close(pout[1]);
+    execvp("/proc/self/exe", NULL);
+    perror("execvp");
+    _exit(1);
+  }
+  else if (ret < 0){
+    perror("fork");
+    exit(2);
+  }
+
+  dup2(temin, 0);
+  dup2(temou, 1);
+  close(temin);
+  close(temou);
+
+  */
+
+
   yylval.cpp_string = result;
   return WORD;
 } /* quotes */
