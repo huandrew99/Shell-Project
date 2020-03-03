@@ -11,6 +11,7 @@
 %{
 
 #include <cstring>
+#include <unistd.h>
 #include "y.tab.hh"
 
 
@@ -126,7 +127,7 @@ extern int yyleng;
   pipe(pin);
   pipe(pout);
 
-  write(pin[1], result->c_str(), result->size());
+  write(pin[1], result->c_str(), strlen(result));
   write(pin[1], "\n", 1);
   write(pin[1], "exit\n", 5);
   close(pin[1]);
@@ -172,8 +173,8 @@ extern int yyleng;
     }
   }
   buffer[index] = '\0';
-
-  for (int i = strlen(buffer); i >=0; i--) {
+  int i;
+  for (i = strlen(buffer); i >= 0; i--) {
     unput(buffer[i]);
   }
 
