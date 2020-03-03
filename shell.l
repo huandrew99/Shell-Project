@@ -117,7 +117,7 @@ extern int yyleng;
   std::string copy = *result;
   copy = copy.substr(2, copy.size()-3);
   *result = copy;
-  /*int temin = dup(0);
+  int temin = dup(0);
   int temou = dup(1);
 
   int pin[2];
@@ -150,9 +150,35 @@ extern int yyleng;
   dup2(temou, 1);
   close(temin);
   close(temou);
-  */
-  yylval.cpp_string = result;
-  return WORD;
+
+  char * cha;
+  char * buffer = new char[9999];
+  int read_ret = 0;
+  int index = 0;
+  while(1) {
+    read_ret = read(pout[0], cha, 1);
+    if (read_ret == 0) {
+      break;
+    }
+    if (*cha == '\n') {
+      buffer[index] = ' ';
+      index++;
+    }
+    else {
+      buffer[index] = *cha;
+      index++;
+    }
+  }
+  buffer[index] = '\0';
+
+  for (int i = strlen(buffer); i >=0; i--) {
+    unput(buffer[i]);
+  }
+
+
+
+  //yylval.cpp_string = result;
+  //return WORD;
 } /* subshell */
 
 [^ \t\n|<>][^ \t\n|<>]*  {
