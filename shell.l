@@ -162,7 +162,7 @@ extern int yyleng;
     if (read_ret != 1) {
       break;
     }
-    printf("%c", cha);
+    //printf("%c", cha);
     if (cha == '\n') {
       buffer[index] = ' ';
       index++;
