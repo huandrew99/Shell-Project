@@ -112,6 +112,15 @@ extern int yyleng;
 } /* quotes */
 
 
+\$\([^\n\$]*\) {
+  std::string *result = new std::string(yytext);
+  std::string copy = *result;
+  copy = copy.substr(1, copy.size()-2);
+  *result = copy;
+  yylval.cpp_string = result;
+  return WORD;
+}
+
 [^ \t\n|<>][^ \t\n|<>]*  {
   /* Assume that file names have only alpha chars */
   yylval.cpp_string = new std::string(yytext);
