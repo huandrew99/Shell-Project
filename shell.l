@@ -77,6 +77,9 @@ extern int yyleng;
   char * result2 = new char[strlen(yytext) + 1];
   int index = 0;
   while (1) {
+    if (!*str) {
+      break;
+    }
     if (*str == "\\") {
       str++;
       result2[index] = *str;
