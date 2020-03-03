@@ -79,7 +79,7 @@ extern int yyleng;
   *result = copy;
   yylval.cpp_string = result;
   return WORD;
-}
+} /* quotes */
 
 
 [^ \t\n|<>][^ \t\n|<>]*  {
