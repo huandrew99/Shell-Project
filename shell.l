@@ -115,7 +115,7 @@ extern int yyleng;
 \$\([^\n\$]*\) {
   std::string *result = new std::string(yytext);
   std::string copy = *result;
-  copy = copy.substr(2, copy.size()-2);
+  copy = copy.substr(2, copy.size()-1);
   *result = copy;
   yylval.cpp_string = result;
   return WORD;
