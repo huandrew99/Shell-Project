@@ -26,6 +26,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <pwd.h>
+#include <fstream>
+
 
 #include "command.hh"
 #include "shell.hh"
@@ -199,6 +201,9 @@ void Command::execute() {
       }
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "source") == 0) {
+        
+        //std::ifstream file()
+        
         clear();
         if (isatty(0)) {
           Shell::prompt();
