@@ -130,13 +130,13 @@ extern int yyleng;
   write(pin[1], "\n", 1);
   write(pin[1], "exit\n", 5);
   close(pin[1]);
-
+  dup2(pin[0], 0);
+  close(pin[0]);
+  dup2(pout[1], 1);
+  close(pout[1]);
+  
   int ret = fork();
   if (ret == 0) {
-    dup2(pin[0], 0);
-    close(pin[0]);
-    dup2(pout[1], 1);
-    close(pout[1]);
     execvp("/proc/self/exe", NULL);
     perror("execvp");
     _exit(1);
@@ -157,9 +157,10 @@ extern int yyleng;
   int index = 0;
   while(1) {
     read_ret = read(pout[0], cha, 1);
-    if (read_ret == 0) {
+    if (read_ret != 1) {
       break;
     }
+    printf("%c\n", *cha);
     if (*cha == '\n') {
       buffer[index] = ' ';
       index++;
