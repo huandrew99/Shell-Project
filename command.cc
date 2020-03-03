@@ -205,7 +205,7 @@ void Command::execute() {
         std::ifstream file(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
         std::string str;
         while (std::getline(file,str)) {
-          printf("%s\n", str->c_str());
+          printf("%s\n", str.c_str());
         } 
         clear();
         if (isatty(0)) {
