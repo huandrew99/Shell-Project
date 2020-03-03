@@ -72,13 +72,28 @@ extern int yyleng;
 [^ \t\n|<>&]*\\[^ \t\n]* {
   
   std::string *result2 = new std::string(yytext);
-  std::string copy2 = *result2;
-  copy2.erase(std::remove(copy2.begin(), copy2.end(), "\\"), copy2.end());
-  *result2 = copy2;
-  yylval.cpp_string = result2;
+
+  char * str = yytext;
+  char * result2 = [strlen(yytext) + 1];
+  int index = 0;
+  while (1) {
+    if (*str == "\\") {
+      str++;
+      result2[index] = *str;
+      index++;
+    }
+    else {
+      result2[index] = *str;
+      index++;
+    }
+    str++;
+  }
+  result2[index] = '\0';
+
+  yylval.cpp_string = new std::string(result2);
   return WORD;
 
-}
+} 
 
 
 \"[^\n\"]*\" {
