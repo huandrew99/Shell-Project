@@ -205,8 +205,8 @@ void Command::execute() {
         std::ifstream file(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
         std::string str;
         std::getline(file,str);
-          printf("%s\n", str.c_str());
-         
+        printf("%s\n", str.c_str());
+        file.close();
         clear();
         if (isatty(0)) {
           Shell::prompt();
