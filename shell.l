@@ -71,7 +71,7 @@ extern int yyleng;
 
 [^ \t\n|<>&]*\\[^ \t\n]* {
   
-  std::string *result2 = new std::string(yytext);
+  //std::string *result2 = new std::string(yytext);
 
   char * str = yytext;
   char * result2 = new char[strlen(yytext) + 1];
