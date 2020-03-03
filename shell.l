@@ -164,7 +164,7 @@ extern int yyleng;
     }
     printf("%c", cha);
     if (cha == '\n') {
-      buffer[index] = cha;
+      buffer[index] = ' ';
       index++;
     }
     else {
@@ -175,7 +175,7 @@ extern int yyleng;
   buffer[index] = '\0';
   int i;
   for (i = strlen(buffer)-11; i >= 0; i--) {
-    unput(buffer[i]);
+    myunputc(buffer[i]);
   }
 
 
