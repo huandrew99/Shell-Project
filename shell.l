@@ -112,7 +112,7 @@ extern int yyleng;
 } /* quotes */
 
 
-\$\([^\n\$]*\) {
+`[^\n`]*`|\$\([^\n\$]*\) {
   std::string *result = new std::string(yytext);
   std::string copy = *result;
   copy = copy.substr(1, copy.size()-2);
