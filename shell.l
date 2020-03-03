@@ -69,6 +69,12 @@ extern int yyleng;
   return TWOGREAT;
 }
 
+[^ \t\n|><&]*\\[^ \t\n]* {
+  yylval.cpp_string = new std::string(yytext);
+  return WORD;
+}
+
+
 \"[^\n\"]*\" {
   //yylval.cpp_string = new std::string(yytext);
   //char * result = [yyleng];
