@@ -174,7 +174,7 @@ extern int yyleng;
   }
   buffer[index] = '\0';
   int i;
-  for (i = strlen(buffer)-9; i >= 0; i--) {
+  for (i = strlen(buffer)-11; i >= 0; i--) {
     unput(buffer[i]);
   }
 
