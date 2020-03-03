@@ -202,9 +202,11 @@ void Command::execute() {
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "source") == 0) {
         printf("%s\n", _simpleCommandsArray[j]->_argumentsArray[1]->c_str());
-        
-        //std::ifstream file()
-        
+        std::ifstream file(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
+        std::string str;
+        while (std::getline(file,str)) {
+          printf("%s\n", str->c_str());
+        } 
         clear();
         if (isatty(0)) {
           Shell::prompt();
