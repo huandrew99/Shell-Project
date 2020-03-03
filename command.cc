@@ -34,6 +34,8 @@
 
 extern char **environ;
 
+void myunput(int);
+
 Command::Command() {
     // Initialize a new vector of Simple Commands
     _simpleCommandsArray = std::vector<SimpleCommand *>();
