@@ -100,7 +100,7 @@ extern int yyleng;
 
 
 \"[^\n\"]*\" {
-  yylval.cpp_string = new std::string(yytext);
+  std::string *result = new std::string(yytext);
   //char * result = [yyleng];
   //char * cursor = yytext;
   std::string copy = *result;
