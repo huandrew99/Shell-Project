@@ -13,10 +13,11 @@ extern "C" void disp(int sig) {
 
   //fprintf( stderr, "\nsig:%d  Ouch!\n", sig);
       //if (Command::_currSimpleCommand == NULL) {
+      if (Shell::_currentCommand._simpleCommandsArray.size() == 0) {
         printf("\n");
     //printf("myshell>");
         Shell::prompt();
-      
+      }
       /*}else {
       printf("\n");
       fflush(stdout);
