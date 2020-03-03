@@ -70,7 +70,7 @@ extern int yyleng;
   return TWOGREAT;
 }
 
-[^ \t\n|<>&]*\\[^ \t\n]* {
+[^ \t\n|<>&]*\\[^ \t\n]+ {
   
   //std::string *result2 = new std::string(yytext);
 
