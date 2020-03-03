@@ -100,12 +100,22 @@ extern int yyleng;
 
 
 \"[^\n\"]*\" {
-  //yylval.cpp_string = new std::string(yytext);
+  yylval.cpp_string = new std::string(yytext);
   //char * result = [yyleng];
   //char * cursor = yytext;
-  std::string *result = new std::string(yytext+2);
-  //std::string copy = *result;
-  //copy = copy.substr(1, copy.size()-2);
+  std::string copy = *result;
+  copy = copy.substr(1, copy.size()-2);
+  *result = copy;
+
+  yylval.cpp_string = result;
+  return WORD;
+} /* quotes */
+
+
+\$\([^\n\$]*\) {
+  std::string *result = new std::string(yytext);
+  std::string copy = *result;
+  copy = copy.substr(2, copy.size()-3);
   //*result = copy;
   /*int temin = dup(0);
   int temou = dup(1);
@@ -140,20 +150,7 @@ extern int yyleng;
   dup2(temou, 1);
   close(temin);
   close(temou);
-
   */
-
-
-  yylval.cpp_string = result;
-  return WORD;
-} /* quotes */
-
-
-\$\([^\n\$]*\) {
-  std::string *result = new std::string(yytext);
-  std::string copy = *result;
-  copy = copy.substr(2, copy.size()-3);
-  *result = copy;
   yylval.cpp_string = result;
   return WORD;
 } /* subshell */
