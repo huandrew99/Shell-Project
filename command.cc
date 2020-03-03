@@ -201,8 +201,8 @@ void Command::execute() {
       }
 
       if (strcmp(_simpleCommandsArray[j]->_argumentsArray[0]->c_str(), "source") == 0) {
-        char * fi = _simpleCommandsArray[j]->_argumentsArray[1]->c_str();
-        printf("%s\n", *fi);
+        printf("%s\n", _simpleCommandsArray[j]->_argumentsArray[1]->c_str());
+        
         //std::ifstream file()
         
         clear();
