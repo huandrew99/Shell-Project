@@ -112,14 +112,14 @@ extern int yyleng;
 } /* quotes */
 
 
-`[^\n`]*`|\$\([^\n\$]*\) {
-  std::string *result = new std::string(yytext);
+\$\([^\n\$]*\) {
+  std::string *result = new std:string(yytext);
   std::string copy = *result;
-  copy = copy.substr(1, copy.size()-2);
+  copy = copy.substr(2, copy.size()-2);
   *result = copy;
   yylval.cpp_string = result;
   return WORD;
-}
+} /* subshell */
 
 [^ \t\n|<>][^ \t\n|<>]*  {
   /* Assume that file names have only alpha chars */
