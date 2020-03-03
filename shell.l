@@ -74,7 +74,7 @@ extern int yyleng;
   std::string *result2 = new std::string(yytext);
 
   char * str = yytext;
-  char * result2 = [strlen(yytext) + 1];
+  char * result2 = new char[strlen(yytext) + 1];
   int index = 0;
   while (1) {
     if (*str == "\\") {
