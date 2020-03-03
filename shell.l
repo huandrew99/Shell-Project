@@ -70,7 +70,12 @@ extern int yyleng;
 }
 
 [^ \t\n|><&]*\\[^ \t\n]* {
-  yylval.cpp_string = new std::string(yytext);
+  
+  std::string *result2 = new std::string(yytext);
+  std::string copy2 = *result2;
+  copy2 = copy2.substr(1, copy2.size()-2);
+  *result2 = copy2;
+  yylval.cpp_string = result2;
   return WORD;
 }
 
