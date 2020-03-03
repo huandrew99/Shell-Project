@@ -69,14 +69,15 @@ extern int yyleng;
   return TWOGREAT;
 }
 
-[^ \t\n|><&]*\\[^ \t\n]* {
+[^ \t\n|<>&]*\\[^ \t\n]* {
   
   std::string *result2 = new std::string(yytext);
   std::string copy2 = *result2;
-  copy2 = copy2.substr(1, copy2.size()-2);
-  *result2 = copy2;
-  yylval.cpp_string = result2;
+  copy2.erase(std::remove(copy2.begin(), copy2.end(), "\\"), copy2.end());
+  *result = copy2;
+  yylval.cpp_string = result;
   return WORD;
+
 }
 
 
