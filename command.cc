@@ -207,9 +207,9 @@ void Command::execute() {
         std::ifstream file;
         file.open(_simpleCommandsArray[j]->_argumentsArray[1]->c_str());
         
-        char * str;
-        std::getline(file,str);
-        printf("%s\n", str);
+        //char * str;
+        //std::getline(file,str);
+        //printf("%s\n", str);
         file.close();
         clear();
         if (isatty(0)) {
