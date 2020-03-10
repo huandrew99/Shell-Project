@@ -17,7 +17,7 @@
 
 extern "C" char * read_line();
 
-int mygetc(File * F) {
+int mygetc(FILE * F) {
   static char *p;
   char ch;
 
