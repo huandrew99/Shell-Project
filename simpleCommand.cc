@@ -21,6 +21,10 @@ void SimpleCommand::insertArgument( std::string * argument ) {
   _argumentsArray.push_back(argument);
 }
 
+/*char * SimpleCommand::tilde (std:: string * argument) {
+  
+}*/
+
 // Print out the simple command
 void SimpleCommand::print() {
   for (auto & arg : _argumentsArray) {
