@@ -308,6 +308,7 @@ void Command::execute() {
         perror("fork");
         exit(2);
      }
+     free(arr);
     }
     //printf("clear\n");
 
