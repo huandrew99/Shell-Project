@@ -308,7 +308,7 @@ void Command::execute() {
         perror("fork");
         exit(2);
      }
-     free(arr);
+     delete [] arr;
     }
     //printf("clear\n");
 
