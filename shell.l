@@ -202,6 +202,7 @@ extern int yyleng;
   for (i = strlen(buffer)-11; i >= 0; i--) {
     myunputc(buffer[i]);
   }
+  delete [] buffer;
 
 
 
