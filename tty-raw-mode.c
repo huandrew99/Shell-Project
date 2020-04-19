@@ -28,5 +28,5 @@ struct termios raw = tty_attr;
 	raw.c_cc[VTIME] = 0;
 	raw.c_cc[VMIN] = 1;
      
-	tcsetattr(0,TCSANOW,&raw);
+	tcsetattr(0,TCSAFLUSH,&raw);
 }
