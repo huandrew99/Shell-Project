@@ -310,10 +310,8 @@ void Command::execute() {
      }
        for (size_t k = 0; k < argument_size + 1; k++) {
           free(arr[k]);
-          arr[k]=NULL;
        }
        free(arr);
-       arr = NULL;
      }
     //printf("clear\n");
 
