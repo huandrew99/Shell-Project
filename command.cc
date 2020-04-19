@@ -311,7 +311,7 @@ void Command::execute() {
        for (size_t k = 0; k < argument_size + 1; k++) {
           free(arr[k]);
        }
-       free(arr);
+       delete(arr);
      }
     //printf("clear\n");
 
