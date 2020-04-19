@@ -308,8 +308,8 @@ void Command::execute() {
         perror("fork");
         exit(2);
      }
-     delete [] arr;
     }
+     delete [] arr;
     //printf("clear\n");
 
     /*int size = _simpleCommandsArray.size();
