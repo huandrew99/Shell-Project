@@ -11,6 +11,7 @@ WARNFLAGS= -Wall -Wextra -pedantic
 LEX=lex -l
 YACC=yacc -y -d -t --debug
 
+EDIT_NODE_ON=yes
 
 ifdef EDIT_MODE_ON
 	EDIT_MODE_OBJECTS=tty-raw-mode.o read-line.o
