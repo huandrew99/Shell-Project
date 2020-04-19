@@ -15,7 +15,7 @@
 #include "y.tab.hh"
 
 
-/*extern "C" char * read_line();
+extern "C" char * read_line();
 
 int mygetc(FILE * f) {
   static char *p;
@@ -39,7 +39,7 @@ int mygetc(FILE * f) {
 #undef getc
 #define getc(f) mygetc(f)
 
-*/
+
 static  void yyunput (int c,char *buf_ptr  );
 
 void myunputc(int c) {
