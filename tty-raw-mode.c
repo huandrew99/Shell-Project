@@ -10,17 +10,23 @@
  * immediately instead of waiting for a newline. 
  * Also there is no automatic echo.
  */
+struct termios tty_attr;
+
+void disable_raw_mode(void) {
+  tcsetattr(STDIN_FILENO, TCSAFLUSH, &tty_attr);
+}
 
 void tty_raw_mode(void)
 {
-	struct termios tty_attr;
+	
      
 	tcgetattr(0,&tty_attr);
-
+  atexit(disable_raw_mode);
+struct termios raw = tty_attr
 	/* Set raw mode. */
-	tty_attr.c_lflag &= (~(ICANON|ECHO));
-	tty_attr.c_cc[VTIME] = 0;
-	tty_attr.c_cc[VMIN] = 1;
+	raw.c_lflag &= (~(ICANON|ECHO));
+	raw.c_cc[VTIME] = 0;
+	raw.c_cc[VMIN] = 1;
      
-	tcsetattr(0,TCSANOW,&tty_attr);
+	tcsetattr(0,TCSANOW,&raw);
 }
