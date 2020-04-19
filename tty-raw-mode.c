@@ -13,7 +13,7 @@
 struct termios tty_attr;
 
 void disable_raw_mode(void) {
-  tcsetattr(STDIN_FILENO, TCSAFLUSH, &tty_attr);
+  tcsetattr(0, TCSAFLUSH, &tty_attr);
 }
 
 void tty_raw_mode(void)
