@@ -308,7 +308,7 @@ void Command::execute() {
         perror("fork");
         exit(2);
      }
-       for (int k = 0; k < argument_size + 1; k++) {
+       for (size_t k = 0; k < argument_size + 1; k++) {
           free(arr[k]);
        }
      }
