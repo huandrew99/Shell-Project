@@ -22,7 +22,7 @@ void tty_raw_mode(void)
      
 	tcgetattr(0,&tty_attr);
   atexit(disable_raw_mode);
-struct termios raw = tty_attr
+struct termios raw = tty_attr;
 	/* Set raw mode. */
 	raw.c_lflag &= (~(ICANON|ECHO));
 	raw.c_cc[VTIME] = 0;
