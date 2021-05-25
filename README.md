@@ -1,4 +1,5 @@
 # Shell-Project
+A simple shell build with c++.
 # Features:
 * Part 1: Parsing and Executing Commands
 * Part 1A: Lex and Yacc - Accepting more complex commands
