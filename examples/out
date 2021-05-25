@@ -1,0 +1,17 @@
+Command::Command() {
+    // Initialize a new vector of Simple Commands
+    _simpleCommandsArray = std::vector<SimpleCommand *>();
+void Command::insertSimpleCommand( SimpleCommand * simpleCommand ) {
+    _simpleCommandsArray.push_back(simpleCommand);
+void Command::clear() {
+    for (auto simpleCommand : _simpleCommandsArray) {
+        delete simpleCommand;
+    _simpleCommandsArray.clear();
+void Command::print() {
+    printf("  #   Simple Commands\n");
+    for ( auto & simpleCommand : _simpleCommandsArray ) {
+        simpleCommand->print();
+void Command::execute() {
+    if ( _simpleCommandsArray.size() == 0 ) {
+    // Print contents of Command data structure
+SimpleCommand * Command::_currSimpleCommand;

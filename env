@@ -1,0 +1,42 @@
+SSH_CONNECTION=10.186.129.111 63901 128.10.2.13 22
+LANG=en_US.UTF-8
+EDITOR=vi
+S_COLORS=auto
+XDG_SESSION_ID=1443714
+USER=hu573
+PAGER=less
+PWD=/homes/hu573/cs252/lab3-src
+HOME=/homes/hu573
+LMOD_COLORIZE=yes
+SSH_CLIENT=10.186.129.111 63901 22
+LMOD_VERSION=6.6
+LMOD_SETTARG_CMD=:
+BASH_ENV=/usr/share/lmod/lmod/init/bash
+XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+LMOD_sys=Linux
+SSH_TTY=/dev/pts/45
+MAIL=/var/mail/hu573
+LMOD_arch=x86_64
+TERM=xterm-256color
+SHELL=/bin/bash
+SHLVL=1
+MANPATH=/usr/share/lmod/lmod/share/man:::/var/cfengine/share/man
+LMOD_PREPEND_BLOCK=normal
+MODULEPATH=/etc/lmod/modules:/usr/share/lmod/lmod/modulefiles/:~/.lmod
+LOGNAME=hu573
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/698236/bus
+XDG_RUNTIME_DIR=/run/user/698236
+MODULEPATH_ROOT=/usr/modulefiles
+PATH=/homes/hu573/bin/.x86_64-linux:/homes/hu573/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:.:/homes/cs240/bin
+MODULESHOME=/usr/share/lmod/lmod
+LMOD_PKG=/usr/share/lmod/lmod
+LMOD_CMD=/usr/share/lmod/lmod/libexec/lmod
+LMOD_FULL_SETTARG_SUPPORT=no
+LMOD_DIR=/usr/share/lmod/lmod/libexec
+BASH_FUNC_module%%=() {  eval $($LMOD_CMD bash "$@");
+ [ $? = 0 ] && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+BASH_FUNC_ml%%=() {  eval $($LMOD_DIR/ml_cmd "$@")
+}
+OLDPWD=/homes/hu573/cs252/test
+_=./shell
